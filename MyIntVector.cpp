@@ -1,4 +1,6 @@
 #include "MyIntVector.h"
+#include <iostream>
+using namespace std;
 
 MyIntVector::MyIntVector()
 {
@@ -18,18 +20,14 @@ MyIntVector::MyIntVector(const MyIntVector& t)
 
 	m_capacity = t.m_capacity;
 
-	arrPtr = t.arrPtr;
-
-	int* temp = new int[m_capacity];
+	arrPtr = new int[m_capacity];
 
 
 	for (int i = 0; i < t.m_capacity; i++)
 	{
-		t.arrPtr[++m_size];
+		arrPtr[i] = t.arrPtr[i];
 	}
 
-	delete[] temp;
-	temp = nullptr;
 
 }
 
@@ -37,7 +35,7 @@ MyIntVector::MyIntVector(const MyIntVector& t)
 
 ostream& operator<<(ostream& str, const MyIntVector& myVec)
 {
-	str << m_size;
+	str << myVec.m_size;
 	return str;
 
 }
